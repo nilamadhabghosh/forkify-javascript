@@ -41,8 +41,13 @@ parseIngredients(){
     const newIngredients = this.ingredients.map( el => {
 
         //Uniform Units
+        let ingredient = el.toLowerCase();
+        unitsLong.forEach((unit,i) => {
+            ingredient = ingredient.replace(unit,unitShort[i]);
+        });
 
         //Remove Parenthesis
+        ingredient = ingredient.replace(/\s*\(.*?\)\s*/g, '');
 
         //parse Ingredients
     });
